@@ -18,19 +18,18 @@ The project evaluates multiple machine learning strategies beyond a baseline mod
 
 Focus was placed on improving generalization and understanding key drivers of income prediction through exploratory analysis and feature importance techniques.
 
-Tools Used
+## Tools Used
 
-Programming Language:
+**Programming Language:**
 Python
 
-Libraries:
-
+**Libraries:**
 pandas – data manipulation and preprocessing
 numpy – numerical computations
 scikit-learn – machine learning models and preprocessing pipelines
 matplotlib / seaborn – data visualization
 
-Machine Learning Techniques:
+**Machine Learning Techniques:**
 
 Random Forest Classifier (baseline model)
 OneHot Encoding & Standard Scaling
@@ -41,8 +40,9 @@ Dimensionality Reduction (e.g., PCA)
 Clustering techniques
 Neural Networks (experimentation phase)
 
+## Project Structure
 
-### Part 1 — EDA, Cleaning & Baseline Model
+### Part 1 — Cleaning & Baseline Model
 - Loaded data, checked dtypes, duplicates, and missing values.
 - Checked for and addressed inconsistent or placeholder values in categorical features.
 - Explored relationships between features and target.
@@ -51,20 +51,43 @@ Neural Networks (experimentation phase)
 - Evaluated feature importance using permutation importance to determine the most influential predictors.
 
 ### Part 2 — Dimensionality Reduction, Clustering & Feature Selection
-- Applied **PCA** (3 components) on top of the scaled features
-- Ran **KMeans** clustering (k = 2–9), selected **k = 5** using silhouette score and the inertia elbow
-- Added the cluster label as a new feature and retrained the Random Forest
-- Applied **VarianceThreshold** and **SelectFromModel** to reduce the feature set
-- Retrained and compared the model on the reduced feature set
+- Applied PCA to the scaled feature set to reduce dimensionality
+- Performed KMeans clustering and selected the optimal number of clusters using silhouette score and the elbow method (inertia).
+- Used cluster assignments as additional features and retrained the Random Forest model.
+- Applied feature selection techniques, including VarianceThreshold and SelectFromModel, to reduce the feature space.
+- Retrained and evaluated the model using the reduced feature set for performance comparison.
 
 ### Part 3 — Neural Network & Hyperparameter Tuning
-- Built a **Keras Sequential** neural network with `Dropout` and `EarlyStopping`
-- Evaluated on the test set with a classification report and confusion matrix
-- Tuned the network with **Keras Tuner (Hyperband)**, searching units, dropout, and optimizer
-- Compared the tuned model against the untuned network and the Random Forest
+- Built a small Keras Sequential neural network with  one hidden layer and trained it over multiple epochs, then improved performance using regularization techniques(Early stopping & Dropout).
+- Evaluated on the test set with a classification report and confusion matrix.
+- Tuned the neural network using Keras Tuner (Hyperband) by optimizing the number of units, dropout rate, and optimizer.
+- Compared the performance of the tuned neural network against the baseline (untuned) model and the Random Forest classifier.
+
+
+A Random Forest Classifier was trained on the full preprocessed feature set as a baseline model for income prediction.
+
+
+   --------------------------------------------------------------------
+ Classification Metrics: Training Data
+----------------------------------------------------------------------
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00     27841
+           1       1.00      1.00      1.00      8751
+
+    accuracy                           1.00     36592
+   macro avg       1.00      1.00      1.00     36592
+weighted avg       1.00      1.00      1.00     36592
 
 
 
+Classification Metrics: Test Data
+----------------------------------------------------------------------
+              precision    recall  f1-score   support
 
+           0       0.89      0.93      0.91      9268
+           1       0.74      0.62      0.68      2930
 
-- `CONCLUSION.md` — final takeaways and recommendations
+    accuracy                           0.86     12198
+   macro avg       0.82      0.78      0.79     12198
+weighted avg       0.85      0.86      0.85     12198
