@@ -152,6 +152,49 @@ Analyze relationships between features and the target variable.
 -The neural network achieved approximately 86% accuracy with Early Stopping and produced results comparable to other advanced approaches.
 
 
+## 🚀 Future Work
+--Handle Class Imbalance More Effectively:
+
+Use techniques like:
+
+SMOTE / oversampling
+
+--Advanced Models:
+
+Explore stronger algorithms such as:
+
+XGBoost / LightGBM
+/Stacking ensemble models
+
+--Hyperparameter Optimization (Deeper Search):
+
+Apply Grid Search or Bayesian Optimization for more systematic tuning.
+
+--Feature Engineering Improvements:
+Create more meaningful interaction features between income-related variables.
+
+--Threshold Tuning:
+
+Adjust classification threshold to improve recall for class 1 instead of relying on default 0.5.
+
+## ⚠️Limitations
+
+-Class Imbalance:
+
+The dataset is imbalanced (majority class 0 dominates), which makes it harder for models to correctly learn and predict class 1 (high-income cases).
+
+-Moderate Class 1 Performance:
+
+Even in the best model, recall for class 1 is still limited, meaning some high-income individuals are misclassified.
+
+-Feature Representation Limits:
+
+Some features may not fully capture complex socio-economic relationships, which restricts model improvement.
+
+-Limited Model Diversity:
+
+Although multiple approaches were tested, more advanced models were not deeply explored.
+
   ## 📊 Conclusion
 
 This project developed machine learning models to predict whether an individual's income is above $50K using demographic and employment data. Data preprocessing was performed, including handling missing values, encoding categorical features, scaling, and data visualization. Different approaches such as feature selection, dimensionality reduction, clustering, and neural networks were applied and compared. The results showed that proper preprocessing and feature engineering improve model performance and help identify important factors affecting income. Overall, the project provided a good understanding of classification modeling and income prediction.
