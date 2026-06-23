@@ -44,12 +44,19 @@ Neural Networks
 The main objectives of this project are:
 
 -To predict income level (>50K or ≤50K) using demographic and employment data.
+
 -To build and evaluate a baseline machine learning model using Random Forest.
+
 -To investigate the impact of feature selection on model performance and efficiency.
+
 -To apply PCA for dimensionality reduction and compare results with the original feature space.
+
 -To use clustering techniques to discover hidden structures in the dataset.
+
 -To develop a neural network model and optimize its hyperparameters for better accuracy.
+
 -To compare multiple models and identify the best-performing approach.
+
 -To demonstrate a complete machine learning workflow from preprocessing to evaluation.
 
 ## ⚙️ Workflow
